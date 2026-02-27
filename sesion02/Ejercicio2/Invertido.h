@@ -4,4 +4,4 @@
 
 void invertir(int original[], int invertido[], int tam);
 
-#endif // !INVERTIDO_H
+#endif 
