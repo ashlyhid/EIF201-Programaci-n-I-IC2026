@@ -49,7 +49,7 @@ int contarSobreLimite(const double* pesos, int cantidad, double limite) {
 	}
 	return contador;
 }
-
+  
 const double* buscarMasPesado(const double* pesos, int cantidad) {
 	const double* mayor = &pesos[0];
 	for (int i = 0; i < cantidad; i++) {
