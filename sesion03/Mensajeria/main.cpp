@@ -11,7 +11,7 @@ int main() {
 	double promedio = total / cantidad;
 
 	double limite;	
-	std::cout << "Ingrese el limite de peso peermitido: ";
+	std::cout << "Ingrese el limite de peso permitido: ";
 	std::cin >> limite;
 
 	int sobreLimite = contarSobreLimite(pesos, cantidad, limite);
@@ -20,7 +20,7 @@ int main() {
 	std::cout << std::fixed << std::setprecision(2);
 	std::cout << "\n --- RESULTADOS ---\n";
 	std::cout << "Peso total: " << total << " kg\n";	
-	std::cout << "Peso promedio: " << promedio << "kg\n";
+	std::cout << "Peso promedio: " << promedio << " kg\n";
 	std::cout << "Paquetes sobre el limite de peso de " << limite << " kg: " << sobreLimite << "\n";
 	std::cout << "Paquete mas pesado: " << *masPesado << " kg\n";
 

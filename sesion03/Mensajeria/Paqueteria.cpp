@@ -23,7 +23,7 @@ void ingresarPesos(double* pesos, int cantidad) {
 			std::cin >> pesos[i];
 
 			if (pesos[i] <= 0) {
-				std::cout << "ERROR: el peso debe ser mayor a 0.\n";
+				std::cout << "ERROR: el peso debe ser mayor a 0Kg.\n";
 			}
 		} while (pesos[i] <= 0);
 	}
@@ -39,8 +39,11 @@ double calcularPesoTotal(const double* pesos, int cantidad) {
 
 int contarSobreLimite(const double* pesos, int cantidad, double limite) {
 	int contador = 0;
+
+	std::cout << "\nPaquetes que sobrepasan el limite (" << limite << " kg):\n";
 	for (int i = 0; i < cantidad; i++) {
 		if (pesos[i] > limite) {
+			std::cout << "Paquete " << (i + 1) << " con peso: " << pesos[i] << " kg" << std::endl;
 			contador++;
 		}
 	}
