@@ -83,7 +83,7 @@ int main() {
 			std::cout << "Digite el codigo del producto: ";
 			std::cin >> codigo;
 
-			EIF201::Producto* encontrado = Inventario.buscarPorCodigo(codigo);
+			EIF201::Producto* encontrado = tienda.buscarPorCodigo(codigo);
 
 			if (encontrado == nullptr) {
 				std::cout << "Producto no encontrado." << std::endl;
@@ -105,17 +105,17 @@ int main() {
 			std::cout << "Digite el codigo del producto a eliminar: ";
 			std::cin >> codigo;
 
-			if (!Inventario.eliminar(codigo)) {
+			if (!tienda.eliminar(codigo)) {
 				std::cout << "No se pudo eliminar el producto" << std::endl;
 			}
 			break;
 		}
 		case 5: {
-			Inventario.mostrarTodos();
+			tienda.mostrarTodos();
 			break;
 		}
 		case 6: {
-			std::cout << "Valor total del inventario: " << Inventario.calcularValorTotal() << std::endl;
+			std::cout << "Valor total del inventario: " << tienda.calcularValorTotal() << std::endl;
 			break;
 		}
 		case 7: {
