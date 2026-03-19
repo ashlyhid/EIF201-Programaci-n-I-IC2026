@@ -43,7 +43,7 @@ namespace EIF201 {
 
 		std::cout << " [" << codigo << "] " << nombre
 			<< "|Precio: $" << std::fixed << std::setprecision(2) << precio
-			<< "|Stock: " << stock << "unidades" << std::endl;
+			<< "|Stock: " << stock << " unidades" << std::endl;
 	}
 
 	bool Producto::vender(int cantidad) { //vender hecho a base de lo poco que entiendo booleanos 
