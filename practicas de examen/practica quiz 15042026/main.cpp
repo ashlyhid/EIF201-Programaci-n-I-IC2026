@@ -4,11 +4,11 @@
 using namespace EIF201;
 
 int main() {
-	Vuelo vuelo1("AA597", "Hong Kong", 4500, 10);
-	Vuelo vuelo2("AA761", "Seoul", 6700, 15);
+	Vuelo vuelo1("AA597", "Hong Kong", 20, 15000);
+	Vuelo vuelo2("AA761", "Seoul", 130, 190000);
 
-	std::cout << "Vuelo N: " << vuelo1.getFlightCode() << ", " << vuelo1.getDestinyCity() <<
-		", $" << vuelo1.getPrice() << " ," << vuelo1.getTimeMinutes() << " minutos" << std::endl;
+	std::cout << "Vuelo N: " << vuelo1.getFlightCode() << " ,$" << vuelo1.getPrice() <<
+		" ,Destino: " << vuelo1.getDestinyCity() << " ," << vuelo1.getTimeMinutes() << " minutos" << std::endl;
 
 	if (vuelo1.esVueloCortoPlazo()) {
 		std::cout << "El vuelo es de corto plazo." << std::endl;

@@ -28,18 +28,18 @@ namespace EIF201 {
 	}
 
 	bool Vuelo::esVueloCortoPlazo() const {
-		int time = 0;
-		if (time <= 90) {
-			return true;
+		int time = timeMinutes;
+		if (time >= 90) {
+			return false;
 		}
 		else {
-			return false;
+			return true;
 		}
 	}
 
 	double Vuelo::precioConImpuesto(double tasa) const {
 		tasa = 0.13;
-		double finalPrice = (1 + tasa);
-		return 0;
+		double finalPrice = price * (1 + tasa);
+		return finalPrice;
 	}
 }
