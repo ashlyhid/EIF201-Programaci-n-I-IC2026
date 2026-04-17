@@ -1,39 +1,91 @@
 #include "Vuelo.h"
 #include <iostream>
+#include <iomanip>
+#include <string>
 
 using namespace EIF201;
 
+double promedioPrecioConImpuesto(Vuelo** vuelos, int cantidad);
+
 int main() {
-	Vuelo vuelo1("AA597", "Hong Kong", 20, 15000);
-	Vuelo vuelo2("AA761", "Seoul", 130, 190000);
+	int cantidad;
 
-	std::cout << "Vuelo N: " << vuelo1.getFlightCode() << " ,$" << vuelo1.getPrice() <<
-		" ,Destino: " << vuelo1.getDestinyCity() << " ," << vuelo1.getTimeMinutes() << " minutos" << std::endl;
+	do {
+		std::cout << "Ingrese la cantidad de vuelos a registrar (entre 1 y 10): ";
+		std::cin >> cantidad;
 
-	if (vuelo1.esVueloCortoPlazo()) {
-		std::cout << "El vuelo es de corto plazo." << std::endl;
+		if (cantidad < 1 || cantidad > 10) {
+			std::cout << "Valor invalido. Intente nuevamente." << std::endl;
+		}
+	} while (cantidad < 1 || cantidad > 10);
+
+	Vuelo** vuelos = new Vuelo * [cantidad];
+
+	for (int i = 0; i < cantidad; i++) {
+
+		std::string flightCode, destinyCity;
+		double price;
+		int esVueloCortoPlazo;
+
+		std::cout << "\nVuelo " << i + 1 << ":" << std::endl;
+
+		std::cout << "Ingrese el codigo del vuelo: ";
+		std::cin >> flightCode;
+
+		std::cout << "Ingrese la ciudad de destino: ";
+		std::cin >> std::ws;
+		std::getline(std::cin, destinyCity);
+
+		std::cout << "Ingrese el precio del vuelo: ";
+		std::cin >> price;
+
+		std::cout << "Ingrese el tiempo del vuelo en minutos: ";
+		std::cin >> esVueloCortoPlazo;
+
+		vuelos[i] = new Vuelo(flightCode, destinyCity, esVueloCortoPlazo, price);
 	}
-	else {
-		std::cout << "El vuelo es de largo plazo." << std::endl;
+
+	for (int i = 0; i < cantidad; i++) {
+
+		std::cout << "Vuelo N: " << vuelos[i]->getFlightCode()
+			<< ", $" << std::fixed << std::setprecision(2) << vuelos[i]->getPrice()
+			<< ", Destino: " << vuelos[i]->getDestinyCity()
+			<< ", " << vuelos[i]->getTimeMinutes() << " minutos" << std::endl;
+
+		if (vuelos[i]->esVueloCortoPlazo()) {
+			std::cout << "El vuelo es de corto plazo.";
+		}
+		else {
+			std::cout << "El vuelo es de largo plazo.";
+		}
+
+		std::cout << std::endl;
+
+		std::cout << "Vuelo con impuesto: $"
+			<< std::fixed << std::setprecision(2)
+			<< vuelos[i]->precioConImpuesto(0.13) << std::endl;
+
+		std::cout << "------------------------------" << std::endl;
 	}
 
-	std::cout << "Vuelo con impuesto: $" << vuelo1.precioConImpuesto(0.13) << std::endl;
+	double promedio = promedioPrecioConImpuesto(vuelos, cantidad);
+	std::cout << "\nPromedio de precios con impuestos: $"
+		<< std::fixed << std::setprecision(2) << promedio << std::endl;
 
-	std::cout << "------------------------------" << std::endl;
-
-	std::cout << "Vuelo N: " << vuelo2.getFlightCode() << ", " << vuelo2.getDestinyCity() <<
-		", $" << vuelo2.getPrice() << " ," << vuelo2.getTimeMinutes() << " minutos" << std::endl;
-
-	if (vuelo2.esVueloCortoPlazo()) {
-		std::cout << "El vuelo es de corto plazo." << std::endl;
+	for (int i = 0; i < cantidad; i++) {
+		delete vuelos[i];
 	}
-	else {
-		std::cout << "El vuelo es de largo plazo." << std::endl;
-	}
-
-	std::cout << "Vuelo con impuesto: $" << vuelo2.precioConImpuesto(0.13) << std::endl;
-
-	std::cout << "------------------------------" << std::endl;
+	delete[] vuelos;
 
 	return 0;
+}
+
+double promedioPrecioConImpuesto(Vuelo** vuelos, int cantidad) {
+	double suma = 0.0;
+
+	for (int i = 0; i < cantidad; i++) {
+		suma += vuelos[i]->precioConImpuesto(0.13);
+	}
+
+	return suma / cantidad;
 }
