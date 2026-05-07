@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37111.16 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PruebaQt", "PruebaQt.vcxproj", "{4DD10112-5FF8-4034-8E61-0F6DE726EEBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DD10112-5FF8-4034-8E61-0F6DE726EEBA}.Debug|x64.ActiveCfg = Debug|x64
+		{4DD10112-5FF8-4034-8E61-0F6DE726EEBA}.Debug|x64.Build.0 = Debug|x64
+		{4DD10112-5FF8-4034-8E61-0F6DE726EEBA}.Release|x64.ActiveCfg = Release|x64
+		{4DD10112-5FF8-4034-8E61-0F6DE726EEBA}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D23D6E64-D7DF-448F-972D-6F9E23E8C996}
+	EndGlobalSection
+EndGlobal
